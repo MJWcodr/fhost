@@ -42,7 +42,8 @@ def getInstructions():
         __out__ = __out__ + ["yes"]
     if (isCommandOption("l", "links")):
         __out__ = __out__ + ["links"]
-
+    if (isCommandOption("s", "shorten")):
+        __out__ = __out__ + ["shorten"]
     return __out__
 
 

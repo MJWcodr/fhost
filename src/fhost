@@ -7,6 +7,8 @@ from dotenv import load_dotenv
 from cli import cli, isCommandOption
 import signal
 
+from shortenLink import shortenLink
+
 # preprocess variables
 # environment variables
 load_dotenv()
@@ -36,4 +38,9 @@ else:
     sendFile(cli.file)
 
 print("files available at:")
-print(f"https://{server}{server_path}{os.path.basename(cli.file)}")
+
+fileLink = f"https://{server}{server_path}{os.path.basename(cli.file)}"
+if ("shorten" in cli.instructions):
+    fileLink = shortenLink(fileLink)
+
+print(fileLink)
